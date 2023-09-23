@@ -1,5 +1,7 @@
 package ladder;
 
+import ladder.creator.AutoLadderCreator;
+import ladder.creator.LadderGameFactory;
 import ladder.creator.ManualLadderCreator;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LadderGameTest {
 
     @Test
-    void 사다리_생성_확인() {
+    void 수동_사다리_생성_확인() {
         //given
         NaturalNumber numberOfRow = NaturalNumber.of(3);
         NaturalNumber numberOfPerson = NaturalNumber.of(5);
@@ -18,6 +20,18 @@ class LadderGameTest {
 
         //then
         assertNotNull(manualLadderCreator);
+    }
+
+    @Test
+    void 자동_사다리_생성_확인() {
+        //given
+        NaturalNumber numberOfRow = NaturalNumber.of(3);
+        NaturalNumber numberOfPerson = NaturalNumber.of(5);
+
+        //when
+        AutoLadderCreator autoLadderCreator = new AutoLadderCreator(numberOfRow, numberOfPerson);
+
+        assertNotNull(autoLadderCreator);
     }
 
     @Test
@@ -37,7 +51,7 @@ class LadderGameTest {
     }
 
     @Test
-    void 사다리_결과_확인() {
+    void 수동_사다리_결과_확인() {
         //when
         NaturalNumber numberOfRow = NaturalNumber.of(3);
         NaturalNumber numberOfPerson = NaturalNumber.of(4);
@@ -77,4 +91,13 @@ class LadderGameTest {
         System.out.println("--------------------\n");
     }
 
+    @Test
+    void 자동_사다리_결과_확인() {
+        NaturalNumber numOfRow = NaturalNumber.of(3);
+        NaturalNumber numOfPerson = NaturalNumber.of(4);
+        Position startPosition = Position.of((int) ((Math.random() * 10000) % numOfPerson.getNumber()));
+
+        LadderGame ladderGame = LadderGameFactory.createAutoLadderGame(numOfRow, numOfPerson);
+        ladderGame.run(startPosition);
+    }
 }
