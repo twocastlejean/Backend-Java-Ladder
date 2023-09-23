@@ -10,6 +10,10 @@ public enum Direction {
         this.value = value;
     }
 
+    public boolean isRight() {
+        return this.value == RIGHT.getValue();
+    }
+
     public int getValue() {
         return value;
     }

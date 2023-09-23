@@ -4,10 +4,10 @@ import ladder.NaturalNumber;
 import ladder.Position;
 import ladder.Row;
 
-public class ManualLadderCreator implements LadderCreator {
+public class AutoLadderCreator implements LadderCreator{
     private final Row[] rows;
 
-    public ManualLadderCreator(NaturalNumber numberOfRow, NaturalNumber numberOfPerson) {
+    AutoLadderCreator(NaturalNumber numberOfRow, NaturalNumber numberOfPerson) {
         rows = new Row[numberOfRow.getNumber()];
         for (int i = 0; i < numberOfRow.getNumber(); i++) {
             rows[i] = new Row(numberOfPerson);

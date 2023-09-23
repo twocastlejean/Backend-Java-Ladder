@@ -18,8 +18,15 @@ public class Node {
         return position;
     }
 
-    public String printNodes() {
-        return direction.getValue() + " ";
+    public void printNodes(boolean isCurrentPosition) {
+        if(isCurrentPosition) {
+            if(direction.isRight()) System.out.print(direction.getValue() + "* ");
+            else System.out.print(direction.getValue() + "*  ");
+        }
+        else {
+            if(direction.isRight()) System.out.print(direction.getValue() + "  ");
+            else System.out.print(direction.getValue() + "   ");
+        }
     }
 
     public boolean isRight() {

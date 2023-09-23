@@ -18,7 +18,11 @@ public class Row {
         setDirectionAtPosition(startPosition.next(), Direction.LEFT);
     }
 
-    public String printRow() {
+    public Node[] getNodes() {
+        return nodes;
+    }
+
+    /*public String printRow() {
         String row = "";
 
         for (int i = 0; i < nodes.length; i++) {
@@ -26,7 +30,7 @@ public class Row {
         }
 
         return row;
-    }
+    }*/
 
     public Position nextPosition(Position currentPosition) {
         validatePosition(currentPosition);

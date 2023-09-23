@@ -54,21 +54,27 @@ class LadderGameTest {
         Position position = Position.of(nthOfPerson);
 
         //then
+        System.out.println("select " + nthOfPerson);
         assertEquals(2, ladderGame.run(position));
+        System.out.println("--------------------\n");
 
         //given
         nthOfPerson = 1;
         position = Position.of(nthOfPerson);
 
         //then
+        System.out.println("select " + nthOfPerson);
         assertEquals(1, ladderGame.run(position));
+        System.out.println("--------------------\n");
 
         //given
         nthOfPerson = 2;
         position = Position.of(nthOfPerson);
 
         //then
+        System.out.println("select " + nthOfPerson);
         assertEquals(0, ladderGame.run(position));
+        System.out.println("--------------------\n");
     }
 
 }
