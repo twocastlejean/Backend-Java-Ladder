@@ -18,14 +18,15 @@ public class AutoLadderCreator implements LadderCreator{
     public void createRandom(NaturalNumber numberOfRow, NaturalNumber numberOfPerson) {
         Position row, col;
         int count = 0;
-        while (count < numberOfRow.getNumber() * numberOfPerson.getNumber() * 0.3) {
+        while (count < (numberOfRow.getNumber() * numberOfPerson.getNumber() * 0.3)) {
             row = Position.of(getRandom(numberOfRow.getNumber()));
-            col = Position.of(getRandom(numberOfPerson.getNumber()));
+            col = Position.of(getRandom(numberOfPerson.getNumber() - 1));
             try {
                 drawLine(row, col);
             } catch (IllegalArgumentException e) {
                 continue;
             }
+            System.out.println("good");
             count++;
         }
     }
