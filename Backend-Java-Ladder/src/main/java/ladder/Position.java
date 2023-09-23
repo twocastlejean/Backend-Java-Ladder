@@ -1,18 +1,20 @@
 package ladder;
 
+import static ladder.ExceptionMessage.INVALID_LADDER_POSITION;
+
 public class Position {
     private int position;
 
-    public Position(int position) {
-        validatePostion(position);
+    private Position(int position) {
         this.position = position;
     }
 
-    public int getPosition() {
+    public int getValue() {
         return position;
     }
 
     public static Position of(int position) {
+        validatePosition(position);
         return new Position(position);
     }
 
@@ -32,9 +34,9 @@ public class Position {
         return this.position > position;
     }
 
-    public static void validatePostion(int position) {
+    private static void validatePosition(int position) {
         if (!isPosition(position)) {
-            throw new IllegalArgumentException("잘못된 사다리 위치입니다.");
+            throw new IllegalArgumentException(INVALID_LADDER_POSITION.getMessage());
         }
     }
 

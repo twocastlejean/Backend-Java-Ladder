@@ -1,9 +1,11 @@
 package ladder;
 
 public class NaturalNumber {
+
     private final int number;
 
     public NaturalNumber(int number) {
+        validate(number);
         this.number = number;
     }
 
@@ -15,13 +17,13 @@ public class NaturalNumber {
         return new NaturalNumber(number);
     }
 
-    public void validate(int number) {
+    private void validate(int number) {
         if (!isNaturalNumber(number)) {
-            throw new IllegalArgumentException("자연수가 아닙니다.");
+            throw new IllegalArgumentException(ExceptionMessage.INVALID_NATURAL_NUMBER.getMessage());
         }
     }
 
-    public static boolean isNaturalNumber(int number) {
+    private static boolean isNaturalNumber(int number) {
         return number >= 1;
     }
 }
