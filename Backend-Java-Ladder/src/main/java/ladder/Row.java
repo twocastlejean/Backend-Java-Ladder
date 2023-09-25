@@ -23,16 +23,6 @@ public class Row {
         return nodes;
     }
 
-    /*public String printRow() {
-        String row = "";
-
-        for (int i = 0; i < nodes.length; i++) {
-            row += nodes[i].printNodes();
-        }
-
-        return row;
-    }*/
-
     public Position nextPosition(Position currentPosition) {
         validatePosition(currentPosition);
         return nodes[currentPosition.getValue()].move(currentPosition);
